@@ -63,6 +63,10 @@ class PodcastEpisode < ApplicationRecord
     end
   end
 
+  def podcast_image
+    ProfileImage.new(podcast).get(width: 90)
+  end
+
   def user_username
     podcast_slug
   end

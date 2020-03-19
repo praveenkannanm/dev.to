@@ -74,7 +74,7 @@ export const Article = ({
           <ContentTitle article={article} currentTag={currentTag} />
           {article.class_name === 'Article' && (
             // eslint-disable-next-line no-underscore-dangle
-            <SearchSnippet snippetResult={article._snippetResult} />
+            <SearchSnippet snippetResult={article.highlight} />
           )}
         </div>
       </a>
@@ -89,10 +89,10 @@ export const Article = ({
           {article.readable_publish_date && (
             <PublishDate
               readablePublishDate={article.readable_publish_date}
-              publishedTimestamp={article.published_timestamp}
+              publishedTimestamp={article.published_at}
             />
           )}
-          {article.published_at_int ? (
+          {article.published_at ? (
             <span className="time-ago-indicator">
               {timeAgoIndicator.length > 0 ? `(${timeAgoIndicator})`: '' }
             </span>
